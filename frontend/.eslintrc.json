@@ -1,0 +1,57 @@
+{
+  "extends": [
+    "airbnb-base",
+    "react-app",
+    "react-app/jest",
+    "plugin:import/recommended",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module"
+  },
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true
+  },
+  "plugins": ["prettier", "jsdoc"],
+  "rules": {
+    "prettier/prettier": [
+      "warn",
+      {
+        "singleQuote": true,
+        "semi": true,
+        "printWidth": 90
+      }
+    ],
+    "no-plusplus": [2, { "allowForLoopAfterthoughts": true }],
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "local",
+        "args": "none"
+      }
+    ],
+    "no-underscore-dangle": "off", //mongodb _id
+    "import/prefer-default-export": 0,
+    "jsdoc/no-undefined-types": 1,
+    "object-shorthand": 0
+  },
+  "settings": {
+    "jsdoc": {
+      "mode": "jsdoc"
+    },
+    "import/resolver": {
+      "webpack": {
+        "config": { "resolve": { "extensions": [".js", ".jsx"] } }
+      },
+      "node": {
+        "moduleDirectory": ["node_modules", "src"],
+        "path": ["node_modules", "src"],
+        "extensions": [".js", ".jsx"]
+      }
+    }
+  }
+}

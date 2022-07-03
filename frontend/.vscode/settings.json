@@ -1,0 +1,18 @@
+{
+    "files.eol": "\n",
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "prettier.endOfLine": "lf",
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+      "editor.formatOnSave": true,
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    // snkeaky insanity
+    "js/ts.implicitProjectConfig.checkJs": true,
+    // rest well bracket pair colorizer extension
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active"
+  }
