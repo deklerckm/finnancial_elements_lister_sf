@@ -1,4 +1,9 @@
 {
   "elements": "Elemek",
-  "create": "Létrehozás"
+  "create": "Létrehozás",
+  "huf": "Ft",
+  "eur": "Euró",
+  "view": "Megtekintés",
+  "edit": "Szerkesztés",
+  "delete": "Törlés"
 }
