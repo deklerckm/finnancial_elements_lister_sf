@@ -55,7 +55,7 @@ const Elements = () => {
 
   return (
     <Container>
-      <Grid container direction="column">
+      <Grid container direction="column" spacing={1}>
         <Grid item>
           <ElementListSearch queryElements={queryElements} />
         </Grid>

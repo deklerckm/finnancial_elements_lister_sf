@@ -29,13 +29,22 @@ const NavigationBar = (props) => {
   return (
     <React.Fragment>
       <div className={classes.navbar}>
-        <Grid container spacing={1} sx={{ padding: '.5rem' }}>
+        <Grid container spacing={1} sx={{ padding: '.5rem', margin: '0 .5rem' }} alignItems="flex-end">
           <Grid item>
             <img src={Coin} style={{ width: 40, height: 40 }} alt="coin" />
           </Grid>
           <Grid item>
             <Grid container direction="column">
-              <Grid item>sprintform</Grid>
+              <Grid
+                item
+                sx={{
+                  fontFamily: 'Rambla, sans-serif',
+                  fontWeight: 700,
+                  fontSize: '1.3rem',
+                }}
+              >
+                sprintform
+              </Grid>
               <Grid item>{t.common('spending_tracker_tool')}</Grid>
             </Grid>
           </Grid>

@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider as ReduxProvider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
+import { createTheme, ThemeProvider } from '@mui/material';
+import { red } from '@mui/material/colors';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -14,11 +16,53 @@ const store = configureStore({
   },
 });
 
+const theme = createTheme({
+  palette: {
+    secondary: red,
+  },
+  components: {
+    MuiButton: {
+      defaultProps: {
+        size: 'small',
+      },
+    },
+    MuiTextField: {
+      defaultProps: {
+        variant: 'outlined',
+        margin: 'none',
+        size: 'small',
+        fullWidth: true,
+      },
+      styleOverrides: {
+        root: {
+          '& .MuiInputBase-input': {
+            backgroundColor: '#FFF',
+          },
+        },
+      },
+    },
+    MuiFormControl: {
+      defaultProps: {
+        size: 'small',
+      },
+      styleOverrides: {
+        root: {
+          '& .MuiInputBase-input': {
+            backgroundColor: '#FFF',
+          },
+        },
+      },
+    },
+  },
+});
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ReduxProvider store={store}>
-      <App />
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
     </ReduxProvider>
   </React.StrictMode>
 );
