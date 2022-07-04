@@ -25,7 +25,7 @@ const NavigationBar = (props) => {
   const toggleOpen = () => {
     setOpen((prevOpen) => !prevOpen);
   };
-  
+
   return (
     <React.Fragment>
       <div className={classes.navbar}>
