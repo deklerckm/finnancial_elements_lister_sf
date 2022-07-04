@@ -46,7 +46,7 @@ const ElementListSearchSingleOption = ({ searchOption }) => {
     <Grid container alignItems="center">
       <Grid item>{inputfield}</Grid>
       <Grid item>
-        <IconButton onClick={deleteClickedHandler}>
+        <IconButton onClick={deleteClickedHandler} color="secondary">
           <DeleteIcon />
         </IconButton>
       </Grid>

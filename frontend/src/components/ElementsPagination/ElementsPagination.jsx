@@ -15,6 +15,7 @@ const ElementsPagination = ({ queryElements }) => {
 
   const handleChange = (event, value) => {
     const newPage = value - 1;
+
     setUrlParams((prevUrlParams) => ({
       ...prevUrlParams,
       page: newPage,
