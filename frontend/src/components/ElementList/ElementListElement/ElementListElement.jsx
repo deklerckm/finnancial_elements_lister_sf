@@ -62,6 +62,7 @@ const ElementListElement = ({ element }) => {
                 <Grid item>
                   <Typography variant="h5">{getParsedSum(currency, sum, t)}</Typography>
                 </Grid>
+                <Divider orientation="vertical" flexItem sx={{ marginLeft: '.5rem' }} />
                 <Grid item>
                   <ElementListElementOperationButtons />
                 </Grid>
