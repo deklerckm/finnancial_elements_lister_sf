@@ -9,5 +9,11 @@
   "search": "Keresés",
   "searchString": "Kulcsszó",
   "more": "Több",
-  "category": "Kategória"
+  "category": "Kategória",
+  "create_new_element": "Új elem létrehozása",
+  "summary": "Leírás",
+  "sum": "Összeg",
+  "currency": "Valuta",
+  "paid": "Fizetve",
+  "required": "Kötelező"
 }

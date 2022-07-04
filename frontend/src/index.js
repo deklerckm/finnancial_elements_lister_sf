@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider as ReduxProvider } from 'react-redux';
+import { SnackbarProvider } from 'notistack';
 import { configureStore } from '@reduxjs/toolkit';
 import { createTheme, ThemeProvider } from '@mui/material';
 import { red } from '@mui/material/colors';
@@ -9,10 +10,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './i18n/client';
 import elementsReducer from './features/element/elementsSlice';
+import elementReducer from './features/element/elementSlice';
 
 const store = configureStore({
   reducer: {
     elements: elementsReducer,
+    element: elementReducer,
   },
 });
 
@@ -61,7 +64,9 @@ root.render(
   <React.StrictMode>
     <ReduxProvider store={store}>
       <ThemeProvider theme={theme}>
-        <App />
+        <SnackbarProvider maxSnack={3}>
+          <App />
+        </SnackbarProvider>
       </ThemeProvider>
     </ReduxProvider>
   </React.StrictMode>

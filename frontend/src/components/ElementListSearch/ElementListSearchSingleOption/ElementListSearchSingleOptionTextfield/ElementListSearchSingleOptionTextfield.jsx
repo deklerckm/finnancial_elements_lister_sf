@@ -13,6 +13,7 @@ const ElementListSearchSingleOptionTextfield = ({ searchOption }) => {
   const { id } = searchOption;
   const { t } = useTranslationWithNamespaces();
   const [urlParams, setUrlParams] = useUrlState(SEARCH_OPTIONS_DEFAULT_VALUE);
+  const defaultValue = getStringifiedObjectParsedValue(urlParams[id])?.value ?? '';
 
   const changedHandler = (e) => {
     setUrlParams((prevUrlParams) => {
@@ -28,11 +29,7 @@ const ElementListSearchSingleOptionTextfield = ({ searchOption }) => {
   };
 
   return (
-    <TextField
-      defaultValue={urlParams[id]?.value ?? ''}
-      onBlur={changedHandler}
-      label={t.common(id)}
-    />
+    <TextField defaultValue={defaultValue} onBlur={changedHandler} label={t.common(id)} />
   );
 };
 

@@ -29,7 +29,12 @@ const NavigationBar = (props) => {
   return (
     <React.Fragment>
       <div className={classes.navbar}>
-        <Grid container spacing={1} sx={{ padding: '.5rem', margin: '0 .5rem' }} alignItems="flex-end">
+        <Grid
+          container
+          spacing={1}
+          sx={{ padding: '.5rem', margin: '0 .5rem' }}
+          alignItems="flex-end"
+        >
           <Grid item>
             <img src={Coin} style={{ width: 40, height: 40 }} alt="coin" />
           </Grid>
@@ -66,7 +71,7 @@ const NavigationBar = (props) => {
               <CloseIcon />
             </IconButton>
           </li>
-          <NavigationBarElements />
+          <NavigationBarElements toggleOpen={toggleOpen} />
         </ul>
       </nav>
     </React.Fragment>

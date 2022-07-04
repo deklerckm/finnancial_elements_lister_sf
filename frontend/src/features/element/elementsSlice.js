@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const ELEMENTS_INITIAL_STATE = { value: [], loading: false };
 
-const elementSlice = createSlice({
+const elementSlices = createSlice({
   name: 'elements',
   initialState: ELEMENTS_INITIAL_STATE,
   reducers: {
@@ -15,6 +15,6 @@ const elementSlice = createSlice({
   },
 });
 
-export const { loadElements, resetElements, onLoading } = elementSlice.actions;
+export const { loadElements, resetElements, onLoading } = elementSlices.actions;
 
-export default elementSlice.reducer;
+export default elementSlices.reducer;
