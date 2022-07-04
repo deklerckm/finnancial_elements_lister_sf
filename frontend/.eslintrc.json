@@ -23,8 +23,10 @@
       {
         "singleQuote": true,
         "semi": true,
-        "printWidth": 90
-      }
+        "printWidth": 90,
+        "endOfLine": "auto",
+        "tabWidth": 2
+      }     
     ],
     "no-plusplus": [2, { "allowForLoopAfterthoughts": true }],
     "no-unused-vars": [

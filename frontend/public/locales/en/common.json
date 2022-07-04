@@ -1,4 +1,9 @@
 {
   "elements": "Elements",
-  "create": "Create"
+  "create": "Create",
+  "huf": "HUF",
+  "eur": "EUR",
+  "view": "View",
+  "edit": "Edit",
+  "delete": "Delete"
 }

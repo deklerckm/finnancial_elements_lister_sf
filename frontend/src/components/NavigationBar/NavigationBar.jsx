@@ -1,10 +1,14 @@
 import React from 'react';
+import Coin from 'assets/images/coin.png';
 // STYLE
+import Grid from '@mui/material/Grid';
 import { makeStyles } from '@mui/styles';
 // ICONS
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material//Menu';
 import CloseIcon from '@mui/icons-material/Close';
+// HOOKS
+import useTranslationWithNamespaces from 'hooks/useTranslationWithNamespaces';
 // COMPONENTS
 import NavigationBarElements from './NavigationBarElements/NavigationBarElements';
 
@@ -16,14 +20,26 @@ import NavigationBarElements from './NavigationBarElements/NavigationBarElements
 const NavigationBar = (props) => {
   const { open, setOpen } = props;
   const classes = useStyles();
+  const { t } = useTranslationWithNamespaces();
 
   const toggleOpen = () => {
     setOpen((prevOpen) => !prevOpen);
   };
-
+  
   return (
     <React.Fragment>
       <div className={classes.navbar}>
+        <Grid container spacing={1} sx={{ padding: '.5rem' }}>
+          <Grid item>
+            <img src={Coin} style={{ width: 40, height: 40 }} alt="coin" />
+          </Grid>
+          <Grid item>
+            <Grid container direction="column">
+              <Grid item>sprintform</Grid>
+              <Grid item>{t.common('spending_tracker_tool')}</Grid>
+            </Grid>
+          </Grid>
+        </Grid>
         <IconButton className={classes.hamburger} onClick={toggleOpen}>
           <MenuIcon />
         </IconButton>
@@ -53,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#4fc3f7',
     height: 80,
     display: 'flex',
-    justifyContent: 'start',
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
   hamburger: {
@@ -67,11 +83,12 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     position: 'fixed',
     top: 0,
-    left: '-100%',
+    right: '-100%',
     transition: '850ms',
+    zIndex: 100,
   },
   open: {
-    left: 0,
+    right: 0,
     transition: '350ms',
   },
   navItems: {
@@ -83,7 +100,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     height: '80px',
     display: 'flex',
-    justifyContent: 'start',
+    justifyContent: 'end',
     alignItems: 'center',
   },
 }));
