@@ -1,12 +1,9 @@
 import React from 'react';
 // STYLE
 import { makeStyles } from '@mui/styles';
-// ICONS
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material//Menu';
-import CloseIcon from '@mui/icons-material/Close';
 // COMPONENTS
 import NavigationBarElements from './NavigationBarElements/NavigationBarElements';
+import AppBar from './AppBar/AppBar';
 
 /**
  * @param {Object} props
@@ -23,11 +20,7 @@ const NavigationBar = (props) => {
 
   return (
     <React.Fragment>
-      <div className={classes.navbar}>
-        <IconButton className={classes.hamburger} onClick={toggleOpen}>
-          <MenuIcon />
-        </IconButton>
-      </div>
+      <AppBar toggleOpen={toggleOpen} />
       <nav
         className={
           open
@@ -36,12 +29,7 @@ const NavigationBar = (props) => {
         }
       >
         <ul className={classes.navItems}>
-          <li className={classes.navToggle}>
-            <IconButton onClick={toggleOpen}>
-              <CloseIcon />
-            </IconButton>
-          </li>
-          <NavigationBarElements />
+          <NavigationBarElements toggleOpen={toggleOpen} />
         </ul>
       </nav>
     </React.Fragment>
@@ -49,42 +37,26 @@ const NavigationBar = (props) => {
 };
 
 const useStyles = makeStyles((theme) => ({
-  navbar: {
-    backgroundColor: '#4fc3f7',
-    height: 80,
-    display: 'flex',
-    justifyContent: 'start',
-    alignItems: 'center',
-  },
-  hamburger: {
-    background: 'none',
-  },
   navElementsContainer: {
-    backgroundColor: '#4fc3f7',
+    backgroundColor: '#1976d2',
     height: '100vh',
     width: '250px',
     display: 'flex',
     justifyContent: 'center',
     position: 'fixed',
     top: 0,
-    left: '-100%',
+    right: '-100%',
     transition: '850ms',
+    zIndex: 100,
   },
   open: {
-    left: 0,
+    right: 0,
     transition: '350ms',
   },
   navItems: {
     width: '100%',
     padding: 0,
-  },
-  navToggle: {
-    backgroundColor: '#4fc3f7',
-    width: '100%',
-    height: '80px',
-    display: 'flex',
-    justifyContent: 'start',
-    alignItems: 'center',
+    paddingTop: 64,
   },
 }));
 

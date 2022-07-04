@@ -3,7 +3,7 @@ import { initReactI18next } from 'react-i18next';
 import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-const LANGUAGES = {
+export const LANGUAGES = {
   ENG: {
     displayName: 'English',
     code: 'en',
@@ -20,7 +20,13 @@ export const NAMESPACES = {
   },
 };
 
-const getDefaultLanguage = () => LANGUAGES.HUN.code;
+const getDefaultLanguage = () => {
+  if (localStorage.getItem('i18nextLng')) {
+    return localStorage.getItem('i18nextLng');
+  }
+
+  return LANGUAGES.HUN.code;
+};
 
 i18n
   .use(Backend)
@@ -33,7 +39,7 @@ i18n
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
     lng: getDefaultLanguage(),
-    fallbackLng: 'hu',
+    fallbackLng: getDefaultLanguage(),
     debug: false,
     // whitelist: Object.values(LANGUAGES).map((language) => language.code),
     ns: Object.values(NAMESPACES).map((namespace) => namespace.value),

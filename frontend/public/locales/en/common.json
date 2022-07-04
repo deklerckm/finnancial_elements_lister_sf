@@ -1,4 +1,21 @@
 {
   "elements": "Elements",
-  "create": "Create"
+  "create": "Create",
+  "huf": "HUF",
+  "eur": "EUR",
+  "view": "View",
+  "edit": "Edit",
+  "delete": "Delete",
+  "search": "Search",
+  "searchString": "Search expression",
+  "more": "More",
+  "category": "Category",
+  "create_new_element": "Create new element",
+  "summary": "Summary",
+  "sum": "Sum",
+  "currency": "Currency",
+  "paid": "Paid",
+  "required": "Required",
+  "Hungarian": "Hungarian",
+  "English": "English"
 }

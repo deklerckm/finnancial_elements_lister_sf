@@ -1,4 +1,21 @@
 {
   "elements": "Elemek",
-  "create": "Létrehozás"
+  "create": "Létrehozás",
+  "huf": "Ft",
+  "eur": "Euró",
+  "view": "Megtekintés",
+  "edit": "Szerkesztés",
+  "delete": "Törlés",
+  "search": "Keresés",
+  "searchString": "Kulcsszó",
+  "more": "Több",
+  "category": "Kategória",
+  "create_new_element": "Új elem létrehozása",
+  "summary": "Leírás",
+  "sum": "Összeg",
+  "currency": "Valuta",
+  "paid": "Fizetve",
+  "required": "Kötelező",
+  "Hungarian": "Magyar",
+  "English": "Angol"
 }

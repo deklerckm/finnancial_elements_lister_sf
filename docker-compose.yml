@@ -1,0 +1,19 @@
+version:  '3.7'
+services:
+
+  sprintform-mongodb:
+    image: bitnami/mongodb:4.0.12
+    restart: always
+    working_dir: /application
+    environment:
+      - MONGODB_ROOT_PASSWORD=password123
+      - MONGODB_PORT_NUMBER=27019
+    ports:
+      - "27019:27019"
+    networks:
+      - bridgednet_dev
+
+networks:
+
+  bridgednet_dev:
+    driver: bridge
