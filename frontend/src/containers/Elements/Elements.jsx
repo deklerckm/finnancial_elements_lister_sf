@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 // STYLE
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
@@ -16,16 +16,22 @@ import { getStringifiedObjectParsedValue } from 'utils/getStringifiedObjectParse
 // COMPONENTS
 import ElementList from 'components/ElementList/ElementList';
 import ElementListSearch from 'components/ElementListSearch/ElementListSearch';
-import SummedCurrencies from 'components/SummedCurrencies/SummedCurrencies';
+// import SummedCurrencies from 'components/SummedCurrencies/SummedCurrencies';
 import ElementsPagination from 'components/ElementsPagination/ElementsPagination';
+import { getDivsHeight } from 'utils/getDivsHeight';
 
 const Elements = () => {
   const dispatch = useDispatch();
   const [urlParams] = useUrlState(SEARCH_OPTIONS_DEFAULT_VALUE);
   const { page: urlPage } = urlParams;
 
+  const [listMaxHeight, setListMaxHeight] = useState(undefined);
+
   useEffect(() => {
     queryElements();
+    setListMaxHeight(
+      window.innerHeight - getDivsHeight(['appBar', 'searchInterface', 'pagination'])
+    );
     return () => {
       dispatch(resetElements());
     };
@@ -73,18 +79,18 @@ const Elements = () => {
   };
 
   return (
-    <Container sx={{ marginBottom: '1rem' }}>
+    <Container>
       <Grid container direction="column" spacing={1}>
-        <Grid item>
+        <Grid item id="searchInterface">
           <ElementListSearch queryElements={queryElements} />
         </Grid>
-        <Grid item>
+        <Grid item sx={{ maxHeight: listMaxHeight, overflow: 'auto' }}>
           <ElementList />
         </Grid>
-        <Grid item>
+        {/* <Grid item id="listMetadata">
           <SummedCurrencies />
-        </Grid>
-        <Grid item>
+        </Grid> */}
+        <Grid item id="pagination">
           <ElementsPagination queryElements={queryElements} />
         </Grid>
       </Grid>
