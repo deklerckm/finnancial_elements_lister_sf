@@ -25,14 +25,15 @@ const listElements = async (req, res) => {
             .limit(+limit)
             .skip(skip);
 
-        res.json({ nodes: elements });
+        const count = await Element.find(query).countDocuments().exec();
+
+        res.json({ nodes: elements, aggregate: { count } });
     } catch (error) {
         res.status(400).json({ message: error })
     }
 }
 
 const createElement = async (req, res) => {
-
     const newElement = new Element({
         summary: req.body.summary,
         category: req.body.category,
