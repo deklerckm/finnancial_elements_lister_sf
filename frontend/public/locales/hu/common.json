@@ -15,5 +15,7 @@
   "sum": "Összeg",
   "currency": "Valuta",
   "paid": "Fizetve",
-  "required": "Kötelező"
+  "required": "Kötelező",
+  "Hungarian": "Magyar",
+  "English": "Angol"
 }

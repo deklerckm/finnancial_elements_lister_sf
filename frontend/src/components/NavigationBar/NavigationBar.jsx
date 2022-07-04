@@ -11,6 +11,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import useTranslationWithNamespaces from 'hooks/useTranslationWithNamespaces';
 // COMPONENTS
 import NavigationBarElements from './NavigationBarElements/NavigationBarElements';
+import LanguageSelector from './LanguageSelector/LanguageSelector';
 
 /**
  * @param {Object} props
@@ -54,9 +55,18 @@ const NavigationBar = (props) => {
             </Grid>
           </Grid>
         </Grid>
-        <IconButton className={classes.hamburger} onClick={toggleOpen}>
-          <MenuIcon />
-        </IconButton>
+        <div>
+          <Grid container wrap="nowrap" alignItems="center" spacing={2}>
+            <Grid item>
+              <LanguageSelector />
+            </Grid>
+            <Grid item>
+              <IconButton className={classes.hamburger} onClick={toggleOpen}>
+                <MenuIcon fontSize="large" />
+              </IconButton>
+            </Grid>
+          </Grid>
+        </div>
       </div>
       <nav
         className={
