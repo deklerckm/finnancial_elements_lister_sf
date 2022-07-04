@@ -1,6 +1,7 @@
 import React from 'react';
 // STYLE
 import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
 // REDUX
 import { useSelector } from 'react-redux';
 
@@ -38,7 +39,11 @@ const SummedCurrencies = () => {
         <Grid container direction="column">
           {valuesPerCurrency.map((currencyValue) => {
             const { id, sum } = currencyValue;
-            return <Grid item key={id}>{`${id}: ${sum}`}</Grid>;
+            return (
+              <Grid item key={id}>
+                <Typography>{`${sum} ${id}`}</Typography>
+              </Grid>
+            );
           })}
         </Grid>
       </Grid>

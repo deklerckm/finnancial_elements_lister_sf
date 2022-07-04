@@ -17,13 +17,13 @@ const NAVIGATION_BAR_ELEMENTS = [
   },
 ];
 
-const NavigationBarElements = () => {
+const NavigationBarElements = ({ toggleOpen }) => {
   const classes = useStyles();
 
   return NAVIGATION_BAR_ELEMENTS.map((element) => {
     const { id } = element;
     return (
-      <li key={id} className={classes.element}>
+      <li key={id} className={classes.element} onClick={toggleOpen}>
         <NavigationBarElement element={element} />
       </li>
     );

@@ -45,4 +45,5 @@ export const SEARCH_OPTIONS_DEFAULT_VALUE = {
     visible: true,
     value: '',
   }),
+  page: 0,
 };

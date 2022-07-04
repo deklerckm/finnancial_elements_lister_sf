@@ -55,7 +55,7 @@ const ElementListSearchSingleOptionMultiSelect = ({ searchOption }) => {
   };
 
   return (
-    <FormControl sx={{ m: 1, minWidth: 120 }}>
+    <FormControl sx={{ minWidth: 120 }}>
       <InputLabel id="demo-multiple-name-label">{t.common(id)}</InputLabel>
       <Select
         labelId="demo-multiple-name-label"

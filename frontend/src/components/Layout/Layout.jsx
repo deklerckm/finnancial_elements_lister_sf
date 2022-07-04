@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
   return (
     <div>
       <NavigationBar open={open} setOpen={setOpen} />
-      <div>{children}</div>
+      <div style={{ marginTop: 64 }}>{children}</div>
     </div>
   );
 };

@@ -1,16 +1,9 @@
 import React from 'react';
-import Coin from 'assets/images/coin.png';
 // STYLE
-import Grid from '@mui/material/Grid';
 import { makeStyles } from '@mui/styles';
-// ICONS
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material//Menu';
-import CloseIcon from '@mui/icons-material/Close';
-// HOOKS
-import useTranslationWithNamespaces from 'hooks/useTranslationWithNamespaces';
 // COMPONENTS
 import NavigationBarElements from './NavigationBarElements/NavigationBarElements';
+import AppBar from './AppBar/AppBar';
 
 /**
  * @param {Object} props
@@ -20,7 +13,6 @@ import NavigationBarElements from './NavigationBarElements/NavigationBarElements
 const NavigationBar = (props) => {
   const { open, setOpen } = props;
   const classes = useStyles();
-  const { t } = useTranslationWithNamespaces();
 
   const toggleOpen = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -28,22 +20,7 @@ const NavigationBar = (props) => {
 
   return (
     <React.Fragment>
-      <div className={classes.navbar}>
-        <Grid container spacing={1} sx={{ padding: '.5rem' }}>
-          <Grid item>
-            <img src={Coin} style={{ width: 40, height: 40 }} alt="coin" />
-          </Grid>
-          <Grid item>
-            <Grid container direction="column">
-              <Grid item>sprintform</Grid>
-              <Grid item>{t.common('spending_tracker_tool')}</Grid>
-            </Grid>
-          </Grid>
-        </Grid>
-        <IconButton className={classes.hamburger} onClick={toggleOpen}>
-          <MenuIcon />
-        </IconButton>
-      </div>
+      <AppBar toggleOpen={toggleOpen} />
       <nav
         className={
           open
@@ -52,12 +29,7 @@ const NavigationBar = (props) => {
         }
       >
         <ul className={classes.navItems}>
-          <li className={classes.navToggle}>
-            <IconButton onClick={toggleOpen}>
-              <CloseIcon />
-            </IconButton>
-          </li>
-          <NavigationBarElements />
+          <NavigationBarElements toggleOpen={toggleOpen} />
         </ul>
       </nav>
     </React.Fragment>
@@ -65,18 +37,8 @@ const NavigationBar = (props) => {
 };
 
 const useStyles = makeStyles((theme) => ({
-  navbar: {
-    backgroundColor: '#4fc3f7',
-    height: 80,
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  hamburger: {
-    background: 'none',
-  },
   navElementsContainer: {
-    backgroundColor: '#4fc3f7',
+    backgroundColor: '#1976d2',
     height: '100vh',
     width: '250px',
     display: 'flex',
@@ -94,14 +56,7 @@ const useStyles = makeStyles((theme) => ({
   navItems: {
     width: '100%',
     padding: 0,
-  },
-  navToggle: {
-    backgroundColor: '#4fc3f7',
-    width: '100%',
-    height: '80px',
-    display: 'flex',
-    justifyContent: 'end',
-    alignItems: 'center',
+    paddingTop: 64,
   },
 }));
 

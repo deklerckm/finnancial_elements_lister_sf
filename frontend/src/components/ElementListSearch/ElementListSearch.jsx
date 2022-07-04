@@ -20,7 +20,7 @@ const ElementListSearch = ({ queryElements }) => {
 
   const onSearch = (e) => {
     e.preventDefault();
-    queryElements();
+    queryElements(0);
   };
 
   return (
