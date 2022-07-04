@@ -3,13 +3,20 @@ import React from 'react';
 import Grid from '@mui/material/Grid';
 // REDUX
 import { useSelector } from 'react-redux';
+// HOOKS
+import useTranslationWithNamespaces from 'hooks/useTranslationWithNamespaces';
 // COMPONENTS
 import ElementListElement from './ElementListElement/ElementListElement';
 
 const ElementList = () => {
+  const { t } = useTranslationWithNamespaces();
   const { value: elements, loading } = useSelector((state) => state.elements);
 
   if (loading) return <div>@TODO SKELETON</div>;
+
+  if (elements.length === 0) {
+    return <div>{t.common('no_records_found')}</div>;
+  }
 
   return (
     <Grid container direction="column" spacing={2} wrap="nowrap">
