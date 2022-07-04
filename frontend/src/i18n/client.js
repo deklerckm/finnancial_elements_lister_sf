@@ -23,7 +23,7 @@ export const NAMESPACES = {
 const getDefaultLanguage = () => {
   if (localStorage.getItem('i18nextLng')) {
     return localStorage.getItem('i18nextLng');
-  };
+  }
 
   return LANGUAGES.HUN.code;
 };

@@ -6,7 +6,8 @@
     "type": "module",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "devStart": "env-cmd -f dev.env nodemon --exec babel-node src/index.js --delay 6 --ext * --verbose"
+        "devStart": "env-cmd -f dev.env nodemon --exec babel-node src/index.js --delay 6 --ext * --verbose",
+        "populateMongo": "env-cmd -f dev.env node src/scripts/populateMongo.js"
     },
     "author": "",
     "license": "ISC",
