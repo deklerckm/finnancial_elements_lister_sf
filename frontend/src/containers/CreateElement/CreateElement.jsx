@@ -58,8 +58,8 @@ const CreateElement = () => {
   };
 
   return (
-    <form onSubmit={onCreate}>
-      <Container sx={{ marginTop: '1rem' }}>
+    <form onSubmit={onCreate} style={{ paddingTop: '1rem' }}>
+      <Container>
         <Grid container direction="column" spacing={3}>
           <Grid item>
             <Grid container>

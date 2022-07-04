@@ -19,7 +19,13 @@ const ElementList = () => {
   }
 
   return (
-    <Grid container direction="column" spacing={2} wrap="nowrap">
+    <Grid
+      container
+      direction="column"
+      spacing={2}
+      wrap="nowrap"
+      sx={{ padding: '.2rem' }}
+    >
       {elements.map((element) => {
         const { _id: id } = element;
 
