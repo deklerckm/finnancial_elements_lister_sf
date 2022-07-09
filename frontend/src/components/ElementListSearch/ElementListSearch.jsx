@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import useUrlState from '@ahooksjs/use-url-state';
 import useTranslationWithNamespaces from 'hooks/useTranslationWithNamespaces';
 // CONSTANTS
-import { SEARCH_OPTIONS, SEARCH_OPTIONS_DEFAULT_VALUE } from 'constants/searchOptions';
+import { SEARCH_OPTIONS, URL_STATE_DEFAULT_VALUE } from 'constants/searchOptions';
 // UTILS
 import { getStringifiedObjectParsedValue } from 'utils/getStringifiedObjectParsedValue';
 // COMPONENTS
@@ -15,7 +15,7 @@ import ElementListSearchSingleOption from './ElementListSearchSingleOption/Eleme
 // import ElementListSearchSingleOptionTextfield from './ElementListSearchSingleOption/ElementListSearchSingleOptionTextfield/ElementListSearchSingleOptionTextfield';
 
 const ElementListSearch = ({ queryElements }) => {
-  const [urlParams] = useUrlState(SEARCH_OPTIONS_DEFAULT_VALUE);
+  const [urlParams] = useUrlState(URL_STATE_DEFAULT_VALUE);
   const { t } = useTranslationWithNamespaces();
 
   const onSearch = (e) => {

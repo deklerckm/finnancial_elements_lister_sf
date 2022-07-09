@@ -18,6 +18,12 @@ export const NAMESPACES = {
   COMMON: {
     value: 'common',
   },
+  ELEMENT: {
+    value: 'element',
+  },
+  ERRORS: {
+    value: 'errors',
+  },
 };
 
 const getDefaultLanguage = () => {

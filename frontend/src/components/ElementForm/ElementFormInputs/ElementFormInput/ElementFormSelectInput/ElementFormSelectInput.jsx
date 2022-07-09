@@ -8,7 +8,7 @@ import FormControl from '@mui/material/FormControl';
 import { useDispatch } from 'react-redux';
 import useTranslationWithNamespaces from 'hooks/useTranslationWithNamespaces';
 
-const ElementFormSelectInput = ({ inputObject, value }) => {
+const ElementFormSelectInput = ({ inputObject, value, readOnly }) => {
   const { id, options } = inputObject;
   const dispatch = useDispatch();
   const { t } = useTranslationWithNamespaces();
@@ -17,7 +17,7 @@ const ElementFormSelectInput = ({ inputObject, value }) => {
     dispatch(onPropertyChanged({ [id]: e.target.value }));
   };
   return (
-    <FormControl size="small" fullWidth>
+    <FormControl size="small" fullWidth disabled={Boolean(readOnly)}>
       <Select value={value} onChange={selectChangedHandler} fullWidth>
         {options.map((option) => {
           const { value: optionValue, labelKey } = option;
