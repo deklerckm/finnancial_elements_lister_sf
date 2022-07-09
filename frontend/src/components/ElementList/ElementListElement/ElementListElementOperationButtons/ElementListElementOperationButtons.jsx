@@ -1,4 +1,5 @@
 import React from 'react';
+import axiosClient from 'api/client';
 // STYLE
 import Grid from '@mui/material/Grid';
 import Tooltip from '@mui/material/Tooltip';
@@ -12,9 +13,18 @@ import { MODAL_TYPES, URL_STATE_DEFAULT_VALUE } from 'constants/searchOptions';
 // HOOKS
 import useTranslationWithNamespaces from 'hooks/useTranslationWithNamespaces';
 import useUrlState from '@ahooksjs/use-url-state';
+import { useSnackbar } from 'notistack';
+// HOC
+import withDialog from 'hoc/withDialog';
 
-const ElementListElementOperationButtons = ({ id }) => {
+const ElementListElementOperationButtons = ({
+  id,
+  summary,
+  queryElements,
+  openDialog,
+}) => {
   const { t } = useTranslationWithNamespaces();
+  const { enqueueSnackbar } = useSnackbar();
   // eslint-disable-next-line no-unused-vars
   const [_, setUrlParams] = useUrlState(URL_STATE_DEFAULT_VALUE);
 
@@ -45,6 +55,34 @@ const ElementListElementOperationButtons = ({ id }) => {
       id: 'delete',
       icon: <DeleteIcon color="secondary" />,
       label: t.common('delete'),
+      handler: () => {
+        openDialog({
+          description: t.element('delete_element_for_sure', { title: summary }),
+          buttons: [
+            {
+              text: t.common('close'),
+              props: { color: 'secondary' },
+              onClick: () => {
+                return null;
+              },
+            },
+            {
+              text: t.common('delete'),
+              onClick: () => {
+                axiosClient.delete(`/elements/${id}`).then((res) => {
+                  queryElements();
+                  enqueueSnackbar(
+                    t.common('deleted_sucessfully', { title: res.data.summary }),
+                    {
+                      variant: 'success',
+                    }
+                  );
+                });
+              },
+            },
+          ],
+        });
+      },
     },
   ];
 
@@ -64,4 +102,4 @@ const ElementListElementOperationButtons = ({ id }) => {
   );
 };
 
-export default ElementListElementOperationButtons;
+export default withDialog(ElementListElementOperationButtons);

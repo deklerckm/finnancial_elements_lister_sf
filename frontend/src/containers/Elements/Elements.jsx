@@ -90,7 +90,7 @@ const Elements = () => {
             <ElementListSearch queryElements={queryElements} />
           </Grid>
           <Grid item sx={{ maxHeight: listMaxHeight, overflow: 'auto' }}>
-            <ElementList />
+            <ElementList queryElements={queryElements}/>
           </Grid>
           {/* <Grid item id="listMetadata">
           <SummedCurrencies />

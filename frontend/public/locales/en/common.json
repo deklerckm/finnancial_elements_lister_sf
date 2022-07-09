@@ -20,5 +20,7 @@
   "English": "English",
   "back": "Back",
   "close": "Close",
-  "no_changes_were_made": "No changes were made"
+  "no_changes_were_made": "No changes were made",
+  "updated_sucessfully": "{{title}} successfully updated",
+  "deleted_sucessfully": "{{title}} successfully deleted"
 }

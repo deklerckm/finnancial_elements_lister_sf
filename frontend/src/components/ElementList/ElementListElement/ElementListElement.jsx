@@ -26,8 +26,8 @@ import ElementListElementOperationButtons from './ElementListElementOperationBut
  * @param {string} props.element.currency - Valuta
  * @param {string} props.element.currency - Dátum
  */
-const ElementListElement = ({ element }) => {
-  const { _id: id, category, sum, currency } = element;
+const ElementListElement = ({ element, queryElements }) => {
+  const { _id: id, summary, category, sum, currency } = element;
   const { t } = useTranslationWithNamespaces();
 
   const categoryObject = CATEGORIES.find((cat) => cat.id === category);
@@ -64,7 +64,11 @@ const ElementListElement = ({ element }) => {
                 </Grid>
                 <Divider orientation="vertical" flexItem sx={{ marginLeft: '.5rem' }} />
                 <Grid item>
-                  <ElementListElementOperationButtons id={id} />
+                  <ElementListElementOperationButtons
+                    id={id}
+                    summary={summary}
+                    queryElements={queryElements}
+                  />
                 </Grid>
               </Grid>
             </Grid>

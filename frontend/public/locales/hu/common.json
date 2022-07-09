@@ -20,5 +20,7 @@
   "English": "Angol",
   "back": "Vissza",
   "close": "Bezárás",
-  "no_changes_were_made": "Nem történt változás"
+  "no_changes_were_made": "Nem történt változás",
+  "updated_sucessfully": "{{title}} sikeresen szerkesztve",
+  "deleted_sucessfully": "{{title}} sikeresen törölve"
 }

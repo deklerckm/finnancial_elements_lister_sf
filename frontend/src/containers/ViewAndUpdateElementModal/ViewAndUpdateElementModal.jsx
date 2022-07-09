@@ -81,12 +81,9 @@ const ViewAndUpdateElementModal = ({ queryElements, openDialog }) => {
       .patch(`/elements/${id}`, changedValues)
       .then((res) => {
         queryElements();
-        enqueueSnackbar(
-          t.common('updated_sucessfully', { title: defaultElement.summary }),
-          {
-            variant: 'success',
-          }
-        );
+        enqueueSnackbar(t.common('updated_sucessfully', { title: element.summary }), {
+          variant: 'success',
+        });
         closeModal();
       })
       .catch((err) => {
