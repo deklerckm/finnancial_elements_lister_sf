@@ -11,7 +11,6 @@ import ElementListElement from './ElementListElement/ElementListElement';
 const ElementList = () => {
   const { t } = useTranslationWithNamespaces();
   const { value: elements, loading } = useSelector((state) => state.elements);
-
   if (loading) return <div>@TODO SKELETON</div>;
 
   if (elements.length === 0) {

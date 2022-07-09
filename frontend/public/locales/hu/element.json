@@ -1,4 +1,5 @@
 {
   "elements": "Elemek",
-  "view_element": "{{element}} megtekintése"
+  "view_element": "{{element}} megtekintése",
+  "edit_element": "{{element}} szerkesztése"
 }

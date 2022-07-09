@@ -34,6 +34,12 @@ const ElementListElementOperationButtons = ({ id }) => {
       id: 'edit',
       icon: <EditIcon />,
       label: t.common('edit'),
+      handler: () => {
+        setUrlParams((prevUrlParams) => ({
+          ...prevUrlParams,
+          modal: JSON.stringify({ type: MODAL_TYPES.edit, id }),
+        }));
+      },
     },
     {
       id: 'delete',

@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const ELEMENT_INITIAL_STATE = {
   value: { id: 'tempId', summary: '', category: '', sum: '', currency: '', paid: '' },
+  defaultValue: {},
   loading: false,
 };
 
@@ -18,7 +19,9 @@ const elementSlice = createSlice({
       return { ...state, value: { ...state.value, ...action.payload } };
     },
     loadElement: (state, action) =>
-      action.payload ? { value: action.payload, loading: false } : ELEMENT_INITIAL_STATE,
+      action.payload
+        ? { value: action.payload, defaultValue: action.payload, loading: false }
+        : ELEMENT_INITIAL_STATE,
   },
 });
 

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // COMPONENTS
 import ElementForm from 'components/ElementForm/ElementForm';
 
-const ViewAndUpdateElementContainer = ({ id }) => {
+const ViewAndUpdateElementContainer = ({ id, readOnly, isSubmitted }) => {
   const dispatch = useDispatch();
   const { loading } = useSelector((state) => state.element);
 
@@ -32,7 +32,7 @@ const ViewAndUpdateElementContainer = ({ id }) => {
     return <div>@TODO SKELETON LOADING SCREEN</div>;
   }
 
-  return <ElementForm readOnly={true} />;
+  return <ElementForm readOnly={readOnly} isSubmitted={isSubmitted} />;
 };
 
 export default ViewAndUpdateElementContainer;

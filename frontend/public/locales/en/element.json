@@ -1,4 +1,5 @@
 {
   "elements": "Elements",
-  "view_element": "View {{element}}"
+  "view_element": "View {{element}}",
+  "edit_element": "Edit {{element}}"
 }

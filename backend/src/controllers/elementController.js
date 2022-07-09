@@ -78,15 +78,13 @@ const updateElement = async (req, res) => {
         }
     }
 
-    let updatedSubscriber;
-
     try {
-        updatedSubscriber = await res.element.save();
+        await res.element.save();
     } catch (error) {
         res.status(400).json({ message: error.message })
     }
 
-    res.status(200).json(updatedSubscriber);
+    res.status(200).json(res.element);
 }
 
 export { getElements, getElement, createElement, deleteElement, updateElement };

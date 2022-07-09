@@ -31,9 +31,11 @@ const Elements = () => {
 
   useEffect(() => {
     queryElements();
+
     setListMaxHeight(
       window.innerHeight - getDivsHeight(['appBar', 'searchInterface', 'pagination'])
     );
+
     return () => {
       dispatch(resetElements());
     };
@@ -98,7 +100,7 @@ const Elements = () => {
           </Grid>
         </Grid>
       </Container>
-      <ViewAndUpdateElementModal />
+      <ViewAndUpdateElementModal queryElements={queryElements} />
     </React.Fragment>
   );
 };
