@@ -10,28 +10,32 @@ import { loadElements, resetElements, onLoading } from 'features/element/element
 // HOOKS
 import useUrlState from '@ahooksjs/use-url-state';
 // CONSTANTS
-import { SEARCH_OPTIONS, SEARCH_OPTIONS_DEFAULT_VALUE } from 'constants/searchOptions';
+import { SEARCH_OPTIONS, URL_STATE_DEFAULT_VALUE } from 'constants/searchOptions';
 // UTILS
 import { getStringifiedObjectParsedValue } from 'utils/getStringifiedObjectParsedValue';
+import { getDivsHeight } from 'utils/getDivsHeight';
 // COMPONENTS
 import ElementList from 'components/ElementList/ElementList';
 import ElementListSearch from 'components/ElementListSearch/ElementListSearch';
 // import SummedCurrencies from 'components/SummedCurrencies/SummedCurrencies';
 import ElementsPagination from 'components/ElementsPagination/ElementsPagination';
-import { getDivsHeight } from 'utils/getDivsHeight';
+// CONTAINERS
+import ViewAndUpdateElementModal from 'containers/ViewAndUpdateElementModal/ViewAndUpdateElementModal';
 
 const Elements = () => {
   const dispatch = useDispatch();
-  const [urlParams] = useUrlState(SEARCH_OPTIONS_DEFAULT_VALUE);
+  const [urlParams] = useUrlState(URL_STATE_DEFAULT_VALUE);
   const { page: urlPage } = urlParams;
 
   const [listMaxHeight, setListMaxHeight] = useState(undefined);
 
   useEffect(() => {
     queryElements();
+
     setListMaxHeight(
       window.innerHeight - getDivsHeight(['appBar', 'searchInterface', 'pagination'])
     );
+
     return () => {
       dispatch(resetElements());
     };
@@ -79,22 +83,25 @@ const Elements = () => {
   };
 
   return (
-    <Container>
-      <Grid container direction="column" spacing={1}>
-        <Grid item id="searchInterface">
-          <ElementListSearch queryElements={queryElements} />
-        </Grid>
-        <Grid item sx={{ maxHeight: listMaxHeight, overflow: 'auto' }}>
-          <ElementList />
-        </Grid>
-        {/* <Grid item id="listMetadata">
+    <React.Fragment>
+      <Container>
+        <Grid container direction="column" spacing={1}>
+          <Grid item id="searchInterface">
+            <ElementListSearch queryElements={queryElements} />
+          </Grid>
+          <Grid item sx={{ maxHeight: listMaxHeight, overflow: 'auto' }}>
+            <ElementList queryElements={queryElements}/>
+          </Grid>
+          {/* <Grid item id="listMetadata">
           <SummedCurrencies />
         </Grid> */}
-        <Grid item id="pagination">
-          <ElementsPagination queryElements={queryElements} />
+          <Grid item id="pagination">
+            <ElementsPagination queryElements={queryElements} />
+          </Grid>
         </Grid>
-      </Grid>
-    </Container>
+      </Container>
+      <ViewAndUpdateElementModal queryElements={queryElements} />
+    </React.Fragment>
   );
 };
 

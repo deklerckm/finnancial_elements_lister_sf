@@ -8,10 +8,9 @@ import useTranslationWithNamespaces from 'hooks/useTranslationWithNamespaces';
 // COMPONENTS
 import ElementListElement from './ElementListElement/ElementListElement';
 
-const ElementList = () => {
+const ElementList = ({ queryElements }) => {
   const { t } = useTranslationWithNamespaces();
   const { value: elements, loading } = useSelector((state) => state.elements);
-
   if (loading) return <div>@TODO SKELETON</div>;
 
   if (elements.length === 0) {
@@ -31,7 +30,7 @@ const ElementList = () => {
 
         return (
           <Grid item key={id}>
-            <ElementListElement element={element} />
+            <ElementListElement element={element} queryElements={queryElements} />
           </Grid>
         );
       })}

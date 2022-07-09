@@ -9,14 +9,14 @@ import useTranslationWithNamespaces from 'hooks/useTranslationWithNamespaces';
 // CONSTANTS
 import {
   SEARCH_OPTIONS,
-  SEARCH_OPTIONS_DEFAULT_VALUE,
+  URL_STATE_DEFAULT_VALUE,
   SEARH_OPTION_TYPES,
 } from 'constants/searchOptions';
 // UTILS
 import { getStringifiedObjectParsedValue } from 'utils/getStringifiedObjectParsedValue';
 
 const ElementListSearchMoreMenu = () => {
-  const [urlParams, setUrlParams] = useUrlState(SEARCH_OPTIONS_DEFAULT_VALUE);
+  const [urlParams, setUrlParams] = useUrlState(URL_STATE_DEFAULT_VALUE);
   const { t } = useTranslationWithNamespaces();
 
   const [anchorEl, setAnchorEl] = useState(null);

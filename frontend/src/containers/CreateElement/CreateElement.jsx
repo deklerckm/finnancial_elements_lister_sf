@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { resetElements } from 'features/element/elementSlice';
+import { resetElement } from 'features/element/elementSlice';
 import axiosClient from 'api/client';
 // STYLE
 import Grid from '@mui/material/Grid';
@@ -27,7 +27,7 @@ const CreateElement = () => {
 
   useEffect(() => {
     return () => {
-      dispatch(resetElements());
+      dispatch(resetElement());
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

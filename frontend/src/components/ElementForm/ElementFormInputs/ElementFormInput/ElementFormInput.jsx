@@ -9,7 +9,7 @@ import useTranslationWithNamespaces from 'hooks/useTranslationWithNamespaces';
 import ElementFormTextfieldInput from './ElementFormTextfieldInput/ElementFormTextfieldInput';
 import ElementFormSelectInput from './ElementFormSelectInput/ElementFormSelectInput';
 
-const ElementFormInput = ({ inputObject, isSubmitted }) => {
+const ElementFormInput = ({ inputObject, isSubmitted, readOnly }) => {
   const { id, type, validation } = inputObject;
   const { value: element } = useSelector((state) => state.element);
   const value = element[id];
@@ -31,10 +31,22 @@ const ElementFormInput = ({ inputObject, isSubmitted }) => {
 
   switch (type) {
     case 'select':
-      input = <ElementFormSelectInput inputObject={inputObject} value={value} />;
+      input = (
+        <ElementFormSelectInput
+          inputObject={inputObject}
+          value={value}
+          readOnly={readOnly}
+        />
+      );
       break;
     default:
-      input = <ElementFormTextfieldInput inputObject={inputObject} value={value} />;
+      input = (
+        <ElementFormTextfieldInput
+          inputObject={inputObject}
+          value={value}
+          readOnly={readOnly}
+        />
+      );
   }
 
   return (

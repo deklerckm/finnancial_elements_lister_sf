@@ -52,11 +52,11 @@
 5. add missing search params for /elements get route (maybe i could implement a logic which grabs all url params and tries to query with it)
 6. sort, item per page on /elements get route
 
-## DevOps
+### DevOps
 1. to able to docker-compose up -d the whole app
     1. create docker files for images and build them
     2. insert images in docker-compose up yml
 
-## Others
+### Others
 1. create readme.md files to ./frontend, ./backend
 

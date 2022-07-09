@@ -1,0 +1,6 @@
+{
+  "elements": "Elements",
+  "view_element": "View {{element}}",
+  "edit_element": "Edit {{element}}",
+  "delete_element_for_sure": "Are you sure that you want to delete {{title}}?"
+}
