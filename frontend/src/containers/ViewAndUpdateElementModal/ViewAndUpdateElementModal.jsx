@@ -7,7 +7,6 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
 // HOOKS
 import useTranslationWithNamespaces from 'hooks/useTranslationWithNamespaces';
 import { useSelector } from 'react-redux';
@@ -99,23 +98,25 @@ const ViewAndUpdateElementModal = ({ queryElements, openDialog }) => {
     >
       <DialogTitle sx={{ fontWeight: 700 }}>
         {t.element(type === MODAL_TYPES.edit ? 'edit_element' : 'view_element', {
-          element: defaultElement.summary,
+          element: defaultElement?.summary,
         })}
       </DialogTitle>
-      <DialogContent>
-        <Container sx={{ margin: '1rem 0' }}>
-          <ViewAndUpdateElementContainer
-            id={id}
-            readOnly={type !== MODAL_TYPES.edit}
-            isSubmitted={isSubmitted}
-          />
-        </Container>
+      <DialogContent sx={{ margin: '1rem 0' }}>
+        <ViewAndUpdateElementContainer
+          id={id}
+          readOnly={type !== MODAL_TYPES.edit}
+          isSubmitted={isSubmitted}
+        />
       </DialogContent>
       <DialogActions>
         <Grid container justifyContent="flex-end" spacing={1}>
           {type === MODAL_TYPES.edit ? (
             <Grid item>
-              <Button variant="contained" onClick={editClickedHandler}>
+              <Button
+                variant="contained"
+                onClick={editClickedHandler}
+                disabled={!defaultElement}
+              >
                 {t.common('edit')}
               </Button>
             </Grid>

@@ -17,7 +17,7 @@ const LanguageSelector = () => {
     i18n.changeLanguage(e.target.value);
   };
   return (
-    <FormControl>
+    <FormControl margin="dense">
       <Select
         value={localStorage.getItem('i18nextLng') ?? LANGUAGES.HUN.code}
         onChange={handleChange}

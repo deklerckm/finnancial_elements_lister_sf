@@ -18,13 +18,7 @@ const ElementList = ({ queryElements }) => {
   }
 
   return (
-    <Grid
-      container
-      direction="column"
-      spacing={2}
-      wrap="nowrap"
-      sx={{ padding: '.2rem' }}
-    >
+    <Grid container direction="column" spacing={2} sx={{ padding: '.2rem' }}>
       {elements.map((element) => {
         const { _id: id } = element;
 

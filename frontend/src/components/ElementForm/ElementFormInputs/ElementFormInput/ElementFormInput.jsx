@@ -51,10 +51,10 @@ const ElementFormInput = ({ inputObject, isSubmitted, readOnly }) => {
 
   return (
     <Grid container>
-      <Grid item xs={3}>
+      <Grid item xs={12} sm={3}>
         <Typography>{t.common(id)}</Typography>
       </Grid>
-      <Grid item xs={9}>
+      <Grid item xs={12} sm={9}>
         <Grid container direction="column">
           <Grid item>{input}</Grid>
           {getErrorMessage() ? (
