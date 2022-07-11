@@ -31,24 +31,16 @@
 
 ### Frontend
 1. Write tests
-2. Make web app full responsive
 3. Write missing jsdocs (already written some)
 4. Skeleton loading screens
-5. Create new i18n namespaces
 6. Translate all missing i18n keys
 7. Global network error handling
 8. new route for diagram and summed values
-9. new route for read single element (it can be in modal)
-10. new route for update single element (it can be in modal)
-11. implement delete element
 12. add missing search params to element list route
 13. implement sort, item per page on element list route
 
 ### Backend
 1. create new route for diagrams
-2. read single element route
-3. update single element route
-4. delete single element route
 5. add missing search params for /elements get route (maybe i could implement a logic which grabs all url params and tries to query with it)
 6. sort, item per page on /elements get route
 
