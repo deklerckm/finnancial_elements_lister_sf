@@ -7,17 +7,14 @@ import DeleteIcon from '@mui/icons-material/Delete';
 // HOOKS
 import useUrlState from '@ahooksjs/use-url-state';
 // CONSTANTS
-import {
-  SEARCH_OPTIONS_DEFAULT_VALUE,
-  SEARH_OPTION_TYPES,
-} from 'constants/searchOptions';
+import { URL_STATE_DEFAULT_VALUE, SEARH_OPTION_TYPES } from 'constants/searchOptions';
 // COMPONENTS
 import ElementListSearchSingleOptionMultiSelect from './ElementListSearchSingleOptionMultiSelect/ElementListSearchSingleOptionMultiSelect';
 import ElementListSearchSingleOptionTextfield from './ElementListSearchSingleOptionTextfield/ElementListSearchSingleOptionTextfield';
 
 const ElementListSearchSingleOption = ({ searchOption }) => {
   const { type } = searchOption;
-  const [urlParams, setUrlParams] = useUrlState(SEARCH_OPTIONS_DEFAULT_VALUE);
+  const [urlParams, setUrlParams] = useUrlState(URL_STATE_DEFAULT_VALUE);
   //   const value = urlParams[searchOption.id];
 
   const deleteClickedHandler = () => {
@@ -44,8 +41,10 @@ const ElementListSearchSingleOption = ({ searchOption }) => {
 
   return (
     <Grid container alignItems="center">
-      <Grid item>{inputfield}</Grid>
-      <Grid item>
+      <Grid item xs={10}>
+        {inputfield}
+      </Grid>
+      <Grid item xs={2}>
         <IconButton onClick={deleteClickedHandler} color="secondary">
           <DeleteIcon />
         </IconButton>

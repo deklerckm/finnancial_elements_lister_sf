@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
+import { makeStyles } from '@mui/styles';
 // ICONS
 import CategoryIcon from 'components/CategoryIcon/CategoryIcon';
 // UTILS
@@ -26,9 +27,10 @@ import ElementListElementOperationButtons from './ElementListElementOperationBut
  * @param {string} props.element.currency - Valuta
  * @param {string} props.element.currency - Dátum
  */
-const ElementListElement = ({ element }) => {
-  const { category, sum, currency } = element;
+const ElementListElement = ({ element, queryElements }) => {
+  const { _id: id, summary, category, sum, currency } = element;
   const { t } = useTranslationWithNamespaces();
+  const classes = useStyles();
 
   const categoryObject = CATEGORIES.find((cat) => cat.id === category);
 
@@ -40,7 +42,7 @@ const ElementListElement = ({ element }) => {
           flexItem
           sx={{ width: '1.5rem', backgroundColor: categoryObject?.color ?? 'Grey' }}
         />
-        <Grid item sm={11.7}>
+        <Grid item xs={11.7}>
           <Grid
             container
             justifyContent="space-between"
@@ -49,7 +51,7 @@ const ElementListElement = ({ element }) => {
           >
             <Grid item>
               <Grid container spacing={3} alignItems="center">
-                <Grid item>
+                <Grid item xs={12} md="auto">
                   <CategoryIcon categoryObject={categoryObject} />
                 </Grid>
                 <Grid item>
@@ -58,13 +60,22 @@ const ElementListElement = ({ element }) => {
               </Grid>
             </Grid>
             <Grid item>
-              <Grid container alignItems="center" spacing={1}>
+              <Grid container alignItems="center" spacing={1} justifyContent="flex-end">
                 <Grid item>
                   <Typography variant="h5">{getParsedSum(currency, sum, t)}</Typography>
                 </Grid>
-                <Divider orientation="vertical" flexItem sx={{ marginLeft: '.5rem' }} />
+                <Divider
+                  orientation="vertical"
+                  flexItem
+                  className={classes.rightDivider}
+                  sx={{ marginLeft: '.5rem' }}
+                />
                 <Grid item>
-                  <ElementListElementOperationButtons />
+                  <ElementListElementOperationButtons
+                    id={id}
+                    summary={summary}
+                    queryElements={queryElements}
+                  />
                 </Grid>
               </Grid>
             </Grid>
@@ -74,5 +85,14 @@ const ElementListElement = ({ element }) => {
     </Card>
   );
 };
+
+const useStyles = makeStyles((theme) => ({
+  rightDivider: {
+    display: 'none',
+    [theme.breakpoints.up('sm')]: {
+      display: 'block',
+    },
+  },
+}));
 
 export default ElementListElement;

@@ -60,14 +60,18 @@ export const ELEMENT_INPUTS = [
   },
 ];
 
-const ElementFormInputs = ({ isSubmitted }) => {
+const ElementFormInputs = ({ isSubmitted, readOnly }) => {
   return (
     <Grid container direction="column" spacing={2}>
       {ELEMENT_INPUTS.map((inputObject) => {
         const { id } = inputObject;
         return (
           <Grid item key={id}>
-            <ElementFormInput inputObject={inputObject} isSubmitted={isSubmitted} />
+            <ElementFormInput
+              inputObject={inputObject}
+              isSubmitted={isSubmitted}
+              readOnly={readOnly}
+            />
           </Grid>
         );
       })}

@@ -10,7 +10,7 @@ import Select from '@mui/material/Select';
 import useTranslationWithNamespaces from 'hooks/useTranslationWithNamespaces';
 import useUrlState from '@ahooksjs/use-url-state';
 // CONSTANS
-import { SEARCH_OPTIONS_DEFAULT_VALUE } from 'constants/searchOptions';
+import { URL_STATE_DEFAULT_VALUE } from 'constants/searchOptions';
 // UTILS
 import { getStringifiedObjectParsedValue } from 'utils/getStringifiedObjectParsedValue';
 
@@ -36,7 +36,7 @@ function getStyles(name, personName, theme) {
 
 const ElementListSearchSingleOptionMultiSelect = ({ searchOption }) => {
   const { id, options } = searchOption;
-  const [urlParams, setUrlParams] = useUrlState(SEARCH_OPTIONS_DEFAULT_VALUE);
+  const [urlParams, setUrlParams] = useUrlState(URL_STATE_DEFAULT_VALUE);
   const { t } = useTranslationWithNamespaces();
   const theme = useTheme();
   const urlParamObject = getStringifiedObjectParsedValue(urlParams[id], {});
@@ -55,7 +55,7 @@ const ElementListSearchSingleOptionMultiSelect = ({ searchOption }) => {
   };
 
   return (
-    <FormControl sx={{ minWidth: 120 }}>
+    <FormControl sx={{ minWidth: 223 }} fullWidth>
       <InputLabel id="demo-multiple-name-label">{t.common(id)}</InputLabel>
       <Select
         labelId="demo-multiple-name-label"

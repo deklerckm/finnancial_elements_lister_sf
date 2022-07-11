@@ -5,12 +5,21 @@ import TextField from '@mui/material/TextField';
 // HOOKS
 import { useDispatch } from 'react-redux';
 
-const ElementFormTextfieldInput = ({ inputObject, value }) => {
+const ElementFormTextfieldInput = ({ inputObject, value, readOnly }) => {
   const { id, type } = inputObject;
   const dispatch = useDispatch();
 
   const changedHandler = (e) => {
     dispatch(onPropertyChanged({ [id]: e.target.value }));
+  };
+
+  const getValue = () => {
+    switch (type) {
+      case 'date':
+        return value.split('.')[0];
+      default:
+        return value;
+    }
   };
 
   const additionalTextfieldProps = {};
@@ -23,7 +32,12 @@ const ElementFormTextfieldInput = ({ inputObject, value }) => {
   }
 
   return (
-    <TextField value={value} onChange={changedHandler} {...additionalTextfieldProps} />
+    <TextField
+      value={getValue()}
+      onChange={changedHandler}
+      disabled={readOnly}
+      {...additionalTextfieldProps}
+    />
   );
 };
 

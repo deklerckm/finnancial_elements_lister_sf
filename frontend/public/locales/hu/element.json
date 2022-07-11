@@ -1,0 +1,6 @@
+{
+  "elements": "Elemek",
+  "view_element": "{{element}} megtekintése",
+  "edit_element": "{{element}} szerkesztése",
+  "delete_element_for_sure": "Biztosan törölni szeretné a következő elemet: {{title}}?"
+}

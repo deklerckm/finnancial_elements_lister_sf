@@ -1,22 +1,23 @@
 import React from 'react';
 // STYLE
+import { makeStyles } from '@mui/styles';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 // HOOKS
 import useUrlState from '@ahooksjs/use-url-state';
 import useTranslationWithNamespaces from 'hooks/useTranslationWithNamespaces';
 // CONSTANTS
-import { SEARCH_OPTIONS, SEARCH_OPTIONS_DEFAULT_VALUE } from 'constants/searchOptions';
+import { SEARCH_OPTIONS, URL_STATE_DEFAULT_VALUE } from 'constants/searchOptions';
 // UTILS
 import { getStringifiedObjectParsedValue } from 'utils/getStringifiedObjectParsedValue';
 // COMPONENTS
 import ElementListSearchMoreMenu from './ElementListSearchMoreMenu/ElementListSearchMoreMenu';
 import ElementListSearchSingleOption from './ElementListSearchSingleOption/ElementListSearchSingleOption';
-// import ElementListSearchSingleOptionTextfield from './ElementListSearchSingleOption/ElementListSearchSingleOptionTextfield/ElementListSearchSingleOptionTextfield';
 
 const ElementListSearch = ({ queryElements }) => {
-  const [urlParams] = useUrlState(SEARCH_OPTIONS_DEFAULT_VALUE);
+  const [urlParams] = useUrlState(URL_STATE_DEFAULT_VALUE);
   const { t } = useTranslationWithNamespaces();
+  const classes = useStyles();
 
   const onSearch = (e) => {
     e.preventDefault();
@@ -24,14 +25,8 @@ const ElementListSearch = ({ queryElements }) => {
   };
 
   return (
-    <Grid
-      container
-      alignItems="center"
-      wrap="nowrap"
-      spacing={1}
-      sx={{ margin: '.5rem 0' }}
-    >
-      <Grid item>
+    <Grid container alignItems="center" spacing={1} sx={{ margin: '.5rem 0' }}>
+      <Grid item xs={12} md="auto">
         <Grid container alignItems="center" spacing={1}>
           {Object.keys(urlParams).map((searchOptionId) => {
             const { visible } =
@@ -44,21 +39,29 @@ const ElementListSearch = ({ queryElements }) => {
             if (!searchOption) return null;
 
             return (
-              <Grid item key={searchOptionId}>
+              <Grid item key={searchOptionId} xs={12} sm="auto">
                 <ElementListSearchSingleOption searchOption={searchOption} />
               </Grid>
             );
           })}
-          <Grid item>
+          <Grid item xs={12} sm="auto">
             <ElementListSearchMoreMenu />
           </Grid>
         </Grid>
       </Grid>
-      <Grid item>
+      <Grid item xs={12} md="auto" className={classes.searchButtonContainer}>
         <Button onClick={onSearch}>{t.common('search')}</Button>
       </Grid>
     </Grid>
   );
 };
+
+const useStyles = makeStyles((theme) => ({
+  searchButtonContainer: {
+    [theme.breakpoints.down('md')]: {
+      textAlign: 'center',
+    },
+  },
+}));
 
 export default ElementListSearch;

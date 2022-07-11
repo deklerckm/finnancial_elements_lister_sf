@@ -6,11 +6,11 @@ import Grid from '@mui/material/Grid';
 import { useSelector } from 'react-redux';
 import useUrlState from '@ahooksjs/use-url-state';
 // CONSTANTS
-import { SEARCH_OPTIONS_DEFAULT_VALUE } from 'constants/searchOptions';
+import { URL_STATE_DEFAULT_VALUE } from 'constants/searchOptions';
 
 const ElementsPagination = ({ queryElements }) => {
   const { count } = useSelector((state) => state.elements);
-  const [urlParams, setUrlParams] = useUrlState(SEARCH_OPTIONS_DEFAULT_VALUE);
+  const [urlParams, setUrlParams] = useUrlState(URL_STATE_DEFAULT_VALUE);
   const { page } = urlParams;
 
   const handleChange = (event, value) => {

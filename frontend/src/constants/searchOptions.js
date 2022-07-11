@@ -28,7 +28,7 @@ export const SEARCH_OPTIONS = [
   },
 ];
 
-// export const SEARCH_OPTIONS_DEFAULT_VALUE = SEARCH_OPTIONS.reduce((acc, option) => {
+// export const URL_STATE_DEFAULT_VALUE = SEARCH_OPTIONS.reduce((acc, option) => {
 //   const { id, visible } = option;
 //   if (!visible) {
 //     return acc;
@@ -40,10 +40,19 @@ export const SEARCH_OPTIONS = [
 //   };
 // }, {});
 
-export const SEARCH_OPTIONS_DEFAULT_VALUE = {
+export const URL_STATE_DEFAULT_VALUE = {
   searchString: JSON.stringify({
     visible: true,
     value: '',
   }),
   page: 0,
+  modal: JSON.stringify({
+    type: '',
+    id: '',
+  }),
+};
+
+export const MODAL_TYPES = {
+  view: 'view',
+  edit: 'edit',
 };

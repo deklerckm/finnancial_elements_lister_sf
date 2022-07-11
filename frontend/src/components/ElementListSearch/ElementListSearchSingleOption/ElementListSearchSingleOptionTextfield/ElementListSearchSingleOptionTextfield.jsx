@@ -2,7 +2,7 @@ import React from 'react';
 // STYLE
 import TextField from '@mui/material/TextField';
 // CONSTANTS
-import { SEARCH_OPTIONS_DEFAULT_VALUE } from 'constants/searchOptions';
+import { URL_STATE_DEFAULT_VALUE } from 'constants/searchOptions';
 // HOOKS
 import useUrlState from '@ahooksjs/use-url-state';
 import useTranslationWithNamespaces from 'hooks/useTranslationWithNamespaces';
@@ -12,7 +12,7 @@ import { getStringifiedObjectParsedValue } from 'utils/getStringifiedObjectParse
 const ElementListSearchSingleOptionTextfield = ({ searchOption }) => {
   const { id } = searchOption;
   const { t } = useTranslationWithNamespaces();
-  const [urlParams, setUrlParams] = useUrlState(SEARCH_OPTIONS_DEFAULT_VALUE);
+  const [urlParams, setUrlParams] = useUrlState(URL_STATE_DEFAULT_VALUE);
   const defaultValue = getStringifiedObjectParsedValue(urlParams[id])?.value ?? '';
 
   const changedHandler = (e) => {

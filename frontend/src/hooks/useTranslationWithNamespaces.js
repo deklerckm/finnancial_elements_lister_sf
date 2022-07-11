@@ -9,6 +9,8 @@ const useTranslationWithNamespaces = () => {
   return {
     t: {
       common: (text, params) => translate(NAMESPACES.COMMON.value, text, params),
+      element: (text, params) => translate(NAMESPACES.ELEMENT.value, text, params),
+      errors: (text, params) => translate(NAMESPACES.ERRORS.value, text, params),
     },
   };
 };
