@@ -1,5 +1,6 @@
 import React from 'react';
 // STYLE
+import { makeStyles } from '@mui/styles';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -13,6 +14,7 @@ import LanguageSelector from '../LanguageSelector/LanguageSelector';
 
 const AppBar = ({ toggleOpen }) => {
   const { t } = useTranslationWithNamespaces();
+  const classes = useStyles();
 
   return (
     <MuiAppBar position="fixed" id="appBar">
@@ -20,10 +22,10 @@ const AppBar = ({ toggleOpen }) => {
         <Grid container justifyContent="space-between" alignItems="flex-end">
           <Grid item>
             <Grid container spacing={1}>
-              <Grid item>
+              <Grid item className={classes.icon}>
                 <img src={Coin} style={{ width: 40, height: 40 }} alt="coin" />
               </Grid>
-              <Grid item>
+              <Grid item className={classes.headerText}>
                 <Grid container direction="column" sx={{ color: '#000000' }}>
                   <Grid
                     item
@@ -63,5 +65,20 @@ const AppBar = ({ toggleOpen }) => {
     </MuiAppBar>
   );
 };
+
+const useStyles = makeStyles((theme) => ({
+  headerText: {
+    display: 'none',
+    [theme.breakpoints.up('400')]: {
+      display: 'block',
+    },
+  },
+  icon: {
+    display: 'none',
+    [theme.breakpoints.up('500')]: {
+      display: 'block',
+    },
+  },
+}));
 
 export default AppBar;

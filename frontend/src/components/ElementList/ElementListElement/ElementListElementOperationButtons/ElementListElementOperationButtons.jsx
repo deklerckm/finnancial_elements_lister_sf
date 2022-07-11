@@ -87,7 +87,7 @@ const ElementListElementOperationButtons = ({
   ];
 
   return (
-    <Grid container direction="column">
+    <Grid container wrap="nowrap">
       {operationButtons.map((button) => {
         const { id: buttonId, icon, label, handler } = button;
         return (

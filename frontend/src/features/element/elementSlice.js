@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const ELEMENT_INITIAL_STATE = {
   value: { id: 'tempId', summary: '', category: '', sum: '', currency: '', paid: '' },
-  defaultValue: {},
+  defaultValue: null,
   loading: false,
 };
 

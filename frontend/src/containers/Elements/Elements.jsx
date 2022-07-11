@@ -36,6 +36,11 @@ const Elements = () => {
       window.innerHeight - getDivsHeight(['appBar', 'searchInterface', 'pagination'])
     );
 
+    window.addEventListener('resize', () =>
+      setListMaxHeight(
+        window.innerHeight - getDivsHeight(['appBar', 'searchInterface', 'pagination'])
+      )
+    );
     return () => {
       dispatch(resetElements());
     };
@@ -90,7 +95,7 @@ const Elements = () => {
             <ElementListSearch queryElements={queryElements} />
           </Grid>
           <Grid item sx={{ maxHeight: listMaxHeight, overflow: 'auto' }}>
-            <ElementList queryElements={queryElements}/>
+            <ElementList queryElements={queryElements} />
           </Grid>
           {/* <Grid item id="listMetadata">
           <SummedCurrencies />
